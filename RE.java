@@ -16,6 +16,12 @@ public class RE {
         System.out.println(asdr);
 
 
+        String ppp = "abba";
+        String www = "dog cat cat dog";
+
+        System.out.println("qqq"+HashMap_WordPattern.wordPattern(ppp, www));
+
+
 
         String exp = "x+3x-6";
         System.out.println(exp.contains("3x"));
