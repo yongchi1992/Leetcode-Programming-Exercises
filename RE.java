@@ -15,11 +15,20 @@ public class RE {
         System.out.println(sdf > 99);
         System.out.println(asdr);
 
+        StringBuilder sb = new StringBuilder();
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
 
         String ppp = "abba";
         String www = "dog cat cat dog";
 
-        System.out.println("qqq"+HashMap_WordPattern.wordPattern(ppp, www));
+        byte freetry = -112;
+        int sdfwe = 0xff & freetry;
+        System.out.println(sdfwe);
+        int left = sdfwe >> 4;
+        int right = sdfwe & 0xf;
+        System.out.println(left + ": " + right);
 
 
 
