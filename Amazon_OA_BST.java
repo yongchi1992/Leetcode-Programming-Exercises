@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Created by yongchizhang on 17/8/7.
  */
@@ -98,6 +102,19 @@ public class Amazon_OA_BST {
         System.out.println(res);
         System.out.println(test.bstDistance(2, 6));
         System.out.println(test.bstDistance(2, 5));
+
+
+        List<int[]> list = new LinkedList<>();
+        list.add(new int[]{1,2});
+        list.add(new int[]{1,2});
+        list.add(new int[]{1,2});
+        int[][] nnee = list.toArray(new int[0][0]);
+        //int[][] nnee = list.toArray(new int[list.size()][]);
+        //  int[][] nnee = list.toArray(new int[0][0]);      两种都可以
+        for(int[] elem : nnee){
+            System.out.println(Arrays.toString(elem));
+        }
+
     }
 
 }
