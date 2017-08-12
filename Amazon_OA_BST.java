@@ -115,6 +115,23 @@ public class Amazon_OA_BST {
             System.out.println(Arrays.toString(elem));
         }
 
+        ListNode head = new ListNode(3);
+        head.next = new ListNode(77);
+        head.next.next = new ListNode(19);
+        int len = countLen(head);
+
+        System.out.println(len + "  " + head.val);  // head 没有移到最右边，19
+
+    }
+
+
+    public static int countLen(ListNode head){
+        int len = 1;
+        while(head.next != null){
+            head = head.next;
+            len++;
+        }
+        return len;
     }
 
 }
