@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * Created by yongchizhang on 17/8/11.
  */
@@ -61,4 +63,38 @@ public class Laioffer_Q1NumPartition {
         }
 
     }
+
+
+
+
+    // Optimal Solution: Time O(n) Space O(1)
+    public int waysOfSplit(int[] candidates) {
+        Stack<Integer> stack = new Stack<>();
+
+        if (candidates == null || candidates.length < 3) {
+            return 0;
+        }
+        int sum = 0;
+        for(int c : candidates){
+            sum += c;
+        }
+        if (sum % 3 != 0) {
+            return 0;
+        }
+        int groupCap = sum / 3;
+        int prefixSum = 0;
+        int prevWays = 0;
+        int totalWays = 0;
+        for (int i = 0; i < candidates.length - 1; i++) {
+            prefixSum += candidates[i];
+            if (prefixSum == groupCap * 2) {
+                totalWays += prevWays;
+            }
+            if (prefixSum == groupCap) {
+                prevWays++;
+            }
+        }
+        return totalWays;
+    }
+
 }

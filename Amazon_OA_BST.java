@@ -122,6 +122,13 @@ public class Amazon_OA_BST {
 
         System.out.println(len + "  " + head.val);  // head 没有移到最右边，19
 
+
+        String str = "adf\n    ddd";
+        System.out.println(str.lastIndexOf("\t"));
+        for(String tmp : str.split("\n")){
+            System.out.println(tmp + "      "+tmp.lastIndexOf("\t"));
+        }
+
     }
 
 
