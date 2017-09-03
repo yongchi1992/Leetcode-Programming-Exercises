@@ -28,9 +28,14 @@ public class Main {
     public static void main(String[] args) throws IOException, ParseException {
 
 
+        int[] numtmp = new int[]{1,1,3};
 
+        int[] other = new int[]{1,1,3};
+        System.out.println(other.equals(numtmp));
 
-
+        boolean dfd = false;
+        boolean sdfwe = !dfd;
+        System.out.println(sdfwe + "     sdfdsf");
 
 
         String mytime = new SimpleDateFormat("HH:mm:ss").format(new Date());
