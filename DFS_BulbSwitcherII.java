@@ -39,6 +39,38 @@ public class DFS_BulbSwitcherII {
     }
 
 
+/*
+    We only need to consider special cases which n<=2 and m < 3. When n >2 and m >=3, the result is 8.
+    The four buttons:
+
+    Flip all the lights.
+    Flip lights with even numbers.
+    Flip lights with odd numbers.
+    Flip lights with (3k + 1) numbers, k = 0, 1, 2, ...
+    If we use button 1 and 2, it equals to use button 3.
+    Similarly...
+
+            1 + 2 --> 3, 1 + 3 --> 2, 2 + 3 --> 1
+    So, there are only 8 cases.
+
+            All_on, 1, 2, 3, 4, 1+4, 2+4, 3+4
+
+    And we can get all the cases, when n>2 and m>=3.*/
+
+    class Solution_best {
+        public int flipLights(int n, int m) {
+            if(m==0) return 1;
+            if(n==1) return 2;
+            if(n==2&&m==1) return 3;
+            if(n==2) return 4;
+            if(m==1) return 4;
+            if(m==2) return 7;
+            if(m>=3) return 8;
+            return 8;
+        }
+    }
+
+
 
 
     class Solution_my {
@@ -143,37 +175,5 @@ public class DFS_BulbSwitcherII {
     }
 
 
-
-
-    class Solution_best {
-        public int flipLights(int n, int m) {
-            n = Math.min(n, 20);
-            int mask = (1<<n)-1;
-            int u = 0;
-            for(int t = 0;t < n;t+=3){
-                u |= 1<<t;
-            }
-            Set<Integer> set = new HashSet<>();
-            for(int i = 0;i < 1<<4;i++){
-                if(Integer.bitCount(i) <= m && Integer.bitCount(i) % 2 == m % 2){
-                    int x = 0;
-                    if(i<<~0<0){
-                        x ^= mask;
-                    }
-                    if(i<<~1<0){
-                        x ^= mask&0x55555555;
-                    }
-                    if(i<<~2<0){
-                        x ^= mask&0xaaaaaaaa;
-                    }
-                    if(i<<~3<0){
-                        x ^= u;
-                    }
-                    set.add(x);
-                }
-            }
-            return set.size();
-        }
-    }
 
 }

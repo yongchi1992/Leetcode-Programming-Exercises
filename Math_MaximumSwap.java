@@ -5,6 +5,66 @@ import java.util.*;
 public class Math_MaximumSwap {
 
 
+
+    class Solution_zijixiede {
+        public int maximumSwap(int num) {
+            List<Integer> list = new ArrayList<>();
+            int maxDigit = 0, maxIdx = -1, curr = 0, swapIdx1 = 0, swapIdx2 = 0;
+            while(num != 0){
+                int digit = num % 10;
+                list.add(digit);
+                if(maxDigit < digit){
+                    maxDigit = digit;
+                    maxIdx = curr;
+                } else if(maxDigit > digit){
+                    swapIdx1 = curr;
+                    swapIdx2 = maxIdx;
+                }
+                curr++;
+                num /= 10;
+            }
+            Collections.swap(list, swapIdx1, swapIdx2);
+            for(int i = list.size() - 1; i >= 0; i--){
+                num = num * 10 + list.get(i);
+            }
+            return num;
+        }
+    }
+
+
+    class Solution_Onbest {
+        public int maximumSwap(int num) {
+            int maxSeen = 0, maxIdx = -1, power = 0, swapIdx1 = 0, swapIdx2 = 0;
+            List<Integer> list = new ArrayList<>();
+            while(num > 0){
+                int digit = num % 10;
+                list.add(digit);
+                if(maxSeen > digit){
+                    swapIdx1 = power;
+                    swapIdx2 = maxIdx;
+                }
+                else if(digit > maxSeen){
+                    maxSeen = digit;
+                    maxIdx = power;
+                }
+                num = num/10;
+                power++;
+            }
+
+            Collections.swap(list, swapIdx1, swapIdx2);
+
+            int result = 0;
+            for(int i = 0; i < list.size(); i++){
+                result += (int)(Math.pow(10, i) * list.get(i));
+            }
+            return result;
+        }
+    }
+
+
+
+
+
     //短短三句话就将num转成了array
     public static int maximumSwap(int num) {
         String str = ""+num;
