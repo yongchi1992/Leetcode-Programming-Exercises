@@ -27,6 +27,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
 
+        int[][] griddd = {{1, 1, 0}, {0, 0, 1}};
+
+        System.out.println("LeetCode :    " + BFS_MaxArea.maxAreaOfIsland(griddd));
+
+
 
         int[] numtmp = new int[]{1,1,3};
 
